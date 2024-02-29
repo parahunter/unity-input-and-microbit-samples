@@ -72,7 +72,7 @@
                 {
                     "name": "negative",
                     "id": "0f3ce029-e461-4e5c-8cfb-cc59e7060082",
-                    "path": "<Keyboard>/d",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -83,7 +83,7 @@
                 {
                     "name": "positive",
                     "id": "1459fa9a-bdac-44fe-8d19-9ac8961004d6",
-                    "path": "<NimbusGamepadHid>/buttonSouth",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
