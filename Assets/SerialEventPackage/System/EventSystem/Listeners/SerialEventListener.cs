@@ -23,6 +23,8 @@ namespace MA.Events
         public StringEvent stringEventResponse;
         public Vector3Event vector3EventResponse;
 
+        const bool loggingEnabled = false;
+
         private void OnEnable()
         {
             if(gameEvent == null) { return; }
@@ -39,7 +41,8 @@ namespace MA.Events
 
         public void OnEventRaised(T0 identifier, string value)
         {
-            //Debug.Log("SerialEventListener: " + "recieved " +  identifier + " + " + value);
+            if(loggingEnabled)
+                Debug.Log("SerialEventListener: " + "recieved " +  identifier + " + " + value);
             
 
             switch (serialTags.tags[selectedTag].dataType)
@@ -48,9 +51,12 @@ namespace MA.Events
                     if (identifier.ToString() != serialTags.tags[selectedTag].identifier)
                         return;
 
-                    Debug.Log("SerialEventListener: recieved id matches '" + identifier.ToString() + "' with a value of '" + value + "' and a type of 'Float'") ;
+                    if (loggingEnabled)
+                    {
+                        Debug.Log("SerialEventListener: recieved id matches '" + identifier.ToString() + "' with a value of '" + value + "' and a type of 'Float'");
+                        Debug.Log("value has been parsed as: " + float.Parse(value));
+                    }
 
-                    Debug.Log("value has been parsed as: " + float.Parse(value));
                     float parsedfloat = float.Parse(value);
 
                     if (visualScriptingCompatible)

@@ -18,7 +18,7 @@ public class SerialDecoder : MonoBehaviour
             return;
 
         serialEvent.Raise(splitArr[0], splitArr[1]);
-        Debug.Log("SerialDecoder: " + "parsed " + splitArr[0] + " + " + splitArr[1]);
+      //  Debug.Log("SerialDecoder: " + "parsed " + splitArr[0] + " + " + splitArr[1]);
 
     }
 

@@ -6,9 +6,10 @@ using System.IO.Ports;
 [RequireComponent(typeof(SerialDecoder))]
 public class SerialReciever : MonoBehaviour
 {
-
     public string recievedTransmission;
     private  SerialDecoder decoder;
+
+    const bool loggingEnabled = false;
 
     private void Awake()
     {
@@ -18,7 +19,9 @@ public class SerialReciever : MonoBehaviour
     // Invoked when a line of data is received from the serial device.
     void OnMessageArrived(string msg)
     {
-        Debug.Log(msg);
+        if(loggingEnabled)
+            Debug.Log(msg);
+
         recievedTransmission = msg;
         ParseString(msg);
     }

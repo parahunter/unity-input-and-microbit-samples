@@ -85,8 +85,6 @@ public class SerialController : MonoBehaviour
         thread.Start();
     }
 
-
-
     // ------------------------------------------------------------------------
     // Invoked whenever the SerialController gameobject is deactivated.
     // It stops and destroys the thread that was reading from the serial device.
@@ -128,14 +126,10 @@ public class SerialController : MonoBehaviour
         if (messageListener == null)
             return;
 
-        print("listening");
-
         // Read the next message from the queue
         string message = (string)serialThread.ReadMessage();
         if (message == null)
             return;
-
-        print(message);
 
         // Check if the message is plain data or a connect/disconnect event.
         if (ReferenceEquals(message, SERIAL_DEVICE_CONNECTED))
