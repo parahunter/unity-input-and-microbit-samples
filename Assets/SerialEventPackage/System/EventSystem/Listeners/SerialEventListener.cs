@@ -72,9 +72,12 @@ namespace MA.Events
                 case SerialTagsScriptableObject.SerialTag.DataType.Int:
                     if (identifier.ToString() != serialTags.tags[selectedTag].identifier)
                         return;
-                    Debug.Log("SerialEventListener: recieved id matches '" + identifier.ToString() + "' with a value of '" + value + "' and a type of 'Int'");
 
-                    Debug.Log("value has been parsed as: " + int.Parse(value));
+                    if (loggingEnabled)
+                    {
+                        Debug.Log("SerialEventListener: recieved id matches '" + identifier.ToString() + "' with a value of '" + value + "' and a type of 'Int'");
+                        Debug.Log("value has been parsed as: " + int.Parse(value));
+                    }
 
                     int parsedInt = int.Parse(value);
 
@@ -92,19 +95,25 @@ namespace MA.Events
 
                     if (identifier.ToString() != serialTags.tags[selectedTag].identifier)
                         return;
-                    Debug.Log("SerialEventListener: recieved id matches '" + identifier.ToString() + "' with a value of '" + value + "' and a type of 'Bool'");
+
+                    if (loggingEnabled)
+                        Debug.Log("SerialEventListener: recieved id matches '" + identifier.ToString() + "' with a value of '" + value + "' and a type of 'Bool'");
 
                     bool parsedBool = false;
 
                     if (value.ToString().ToLower() == "true")
                     {
-                        Debug.Log("value has been parsed as: " + true);
+                        if (loggingEnabled)
+                            Debug.Log("value has been parsed as: " + true);
+                        
                         parsedBool = true;
                         break;
                     }
                     else if(value.ToString().ToLower() == "false")
                     {
-                        Debug.Log("value has been parsed as: " + false);
+                        if (loggingEnabled)
+                            Debug.Log("value has been parsed as: " + false);
+                        
                         parsedBool = false;
                         break;
                     }
@@ -115,7 +124,9 @@ namespace MA.Events
                         return;
                     }
 
-                    Debug.Log("value has been parsed as: " + bool.Parse(value));
+                    if (loggingEnabled)
+                        Debug.Log("value has been parsed as: " + bool.Parse(value));
+                    
                     boolEventResponse.Invoke(parsedBool);
                     //boolEventResponse.Invoke(bool.Parse(value));
                     break;
